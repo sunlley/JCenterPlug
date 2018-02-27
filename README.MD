@@ -5,8 +5,8 @@
 ## 如何使用
   在主工程下的build.gradle 添加如下：
   
-  '''groovy
-  buildscript {
+  ```groovy
+ buildscript {
     repositories {
         jcenter()
     }
@@ -14,12 +14,12 @@
         classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
     }
   }
-  '''
+```
   
   在要发布代码库的build.gradle 添加如下：
   
-  '''groovy
-  apply plugin: 'jcenter-plug'
+  ```groovy
+apply plugin: 'jcenter-plug'
   publish { // 新增
     bintrayUser=userName
     bintrayKey=userKey
@@ -32,14 +32,14 @@
     desc = plugDesc // 项目描述,可选项
     website = siteUrl // 项目站点,可选项
   }
-  '''
+```
   
   完成后 在在你的 gradle tasks 中出现 bintrayUpload 任务
   最后在终端中输入以下命令
   
-  '''bash
+  ```bash
   ./gradlew clean build bintrayUpload
-  '''
+```
   ## gradle版本注意事项
   
 | jcener-plug version | Java Projects | Android Projects |
