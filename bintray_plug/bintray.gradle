@@ -1,0 +1,71 @@
+apply plugin: 'maven'
+apply plugin: 'jcenter-plug'
+Properties properties = new Properties();
+DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+properties.load(inputStream)
+
+def mavenRepo=properties.getProperty('mavenRepo')
+def fileType='jar'
+def siteUrl='https://github.com/kayoSun/BintrayPlug' // 项目的主页 这个是说明，可随便填
+def gitUrl='https://github.com/kayoSun/BintrayPlug.git' // Git仓库的url 这个是说明，可随便填
+def plugDesc='a plug for pushing jar to bintray'
+def plugId='com.kayo.bintray'// 这里是groupId ,必须填写 一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
+def plugName='jcenter-plug'
+def plugVersion='3.0.0-alpha'
+
+def userName=properties.getProperty('userName')
+def userKey=properties.getProperty('userKey')
+def userRepo=properties.getProperty('userRepo')
+
+repositories {
+    mavenCentral()
+    maven { url uri(mavenRepo) }
+}
+
+//==========以下发布至bintray==========
+publish { // 新增
+    bintrayUser=userName
+    bintrayKey=userKey
+    dryRun=false
+    repoName=userRepo//仓库名称
+    userOrg = userName // 注册bintray时的username
+    groupId = plugId // 项目包名
+    artifactId = plugName// 项目名
+    publishVersion = plugVersion // 发布版本号
+    desc = plugDesc // 项目描述,可选项
+    website = siteUrl // 项目站点,可选项
+}
+
+
+// ==============以下上传本地maven==============
+group=plugId
+version=plugVersion
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //提交到远程服务器：
+            // repository(url: "http://www.xxx.com/repos") {
+            //    authentication(userName: "admin", password: "admin")
+            // }
+            //本地的Maven地址设置为
+            repository(url: uri(mavenRepo))
+
+            pom.project {
+                name plugName
+                groupId plugId
+                artifactId plugName
+                version plugVersion
+                packaging fileType
+                description plugDesc
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution 'repo'
+                    }
+                }
+            }
+        }
+    }
+}
