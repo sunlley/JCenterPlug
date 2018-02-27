@@ -1,1 +1,1 @@
-include ':app', ':bintray_plug'
+include ':app', ':jcenter_plug'

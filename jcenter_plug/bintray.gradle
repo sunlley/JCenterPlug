@@ -1,15 +1,15 @@
 apply plugin: 'maven'
-apply plugin: 'jcenter-plug'
-Properties properties = new Properties();
+//apply plugin: 'jcenter-plug'
+Properties properties = new Properties()
 DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
 properties.load(inputStream)
 
 def mavenRepo=properties.getProperty('mavenRepo')
 def fileType='jar'
-def siteUrl='https://github.com/kayoSun/BintrayPlug' // 项目的主页 这个是说明，可随便填
-def gitUrl='https://github.com/kayoSun/BintrayPlug.git' // Git仓库的url 这个是说明，可随便填
+def siteUrl='https://github.com/kayoSun/JCenterPlug' // 项目的主页 这个是说明，可随便填
+def gitUrl='https://github.com/kayoSun/JCenterPlug.git' // Git仓库的url 这个是说明，可随便填
 def plugDesc='a plug for pushing jar to bintray'
-def plugId='com.kayo.bintray'// 这里是groupId ,必须填写 一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
+def plugId='com.kayo.jcenter'// 这里是groupId ,必须填写 一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
 def plugName='jcenter-plug'
 def plugVersion='3.0.0-alpha'
 
@@ -23,18 +23,18 @@ repositories {
 }
 
 //==========以下发布至bintray==========
-publish { // 新增
-    bintrayUser=userName
-    bintrayKey=userKey
-    dryRun=false
-    repoName=userRepo//仓库名称
-    userOrg = userName // 注册bintray时的username
-    groupId = plugId // 项目包名
-    artifactId = plugName// 项目名
-    publishVersion = plugVersion // 发布版本号
-    desc = plugDesc // 项目描述,可选项
-    website = siteUrl // 项目站点,可选项
-}
+//publish { // 新增
+//    bintrayUser=userName
+//    bintrayKey=userKey
+//    dryRun=false
+//    repoName=userRepo//仓库名称
+//    userOrg = userName // 注册bintray时的username
+//    groupId = plugId // 项目包名
+//    artifactId = plugName// 项目名
+//    publishVersion = plugVersion // 发布版本号
+//    desc = plugDesc // 项目描述,可选项
+//    website = siteUrl // 项目站点,可选项
+//}
 
 
 // ==============以下上传本地maven==============

@@ -1,4 +1,4 @@
-package com.kayo.bintray
+package com.kayo.jcenter
 
 import org.gradle.api.Project
 

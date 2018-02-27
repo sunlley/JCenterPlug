@@ -9,8 +9,9 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
-        classpath 'com.novoda:bintray-release:0.3.4'
+//        classpath 'com.novoda:bintray-release:0.3.4'
 //        classpath 'com.kayo.bintray:bintray-plug:3.0.0-alpha'
+        classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
 
 
         // NOTE: Do not place your application dependencies here; they belong

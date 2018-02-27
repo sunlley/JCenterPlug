@@ -1,4 +1,4 @@
-package com.kayo.bintray
+package com.kayo.jcenter
 
 import groovy.transform.PackageScope
 
