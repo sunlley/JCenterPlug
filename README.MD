@@ -40,12 +40,14 @@ apply plugin: 'jcenter-plug'
   ```bash
   ./gradlew clean build bintrayUpload
 ```
-  ## gradle版本注意事项
+
+##  gradle版本注意事项
   
 | jcener-plug version | Java Projects | Android Projects |
 |---------------------|---------------|------------------|
 | 3.0.0-alpha         | Gradle 4.0+   | Gradle 4.1+      |
 
-  ## 感谢
+
+##  感谢
   bintray-release 项目
   最后欢迎提出您的宝贵意见、建议，祝大家工作愉快！
