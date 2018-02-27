@@ -17,4 +17,4 @@ dependencies {
     compile 'com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api'
 
 }
-//apply from: 'bintray.gradle'
+apply from: 'bintray.gradle'

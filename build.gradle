@@ -1,16 +1,17 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    
+    Properties properties = new Properties()
+    DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+    properties.load(inputStream)
+    def mavenRepo=properties.getProperty('mavenRepo')
     repositories {
-        maven { url uri('/Users/kayo/maven') }
+        maven { url uri(mavenRepo) }
         google()
         jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha01'
-//        classpath 'com.novoda:bintray-release:0.3.4'
-//        classpath 'com.kayo.bintray:bintray-plug:3.0.0-alpha'
         classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
 
 
@@ -20,8 +21,12 @@ buildscript {
 }
 
 allprojects {
+    Properties properties = new Properties()
+    DataInputStream inputStream = project.rootProject.file('local.properties').newDataInputStream()
+    properties.load(inputStream)
+    def mavenRepo=properties.getProperty('mavenRepo')
     repositories {
-        maven { url uri('/Users/kayo/maven') }
+        maven { url uri(mavenRepo) }
         google()
         jcenter()
     }
