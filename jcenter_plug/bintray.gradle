@@ -11,7 +11,7 @@ def gitUrl='https://github.com/kayoSun/JCenterPlug.git' // Git仓库的url 这�
 def plugDesc='a plug for pushing jar to bintray'
 def plugId='com.kayo.jcenter'// 这里是groupId ,必须填写 一般填你唯一的包名，对应com.squareup.okhttp3:okhttp:3.4.1中的com.squareup.okhttp3部分
 def plugName='jcenter-plug'
-def plugVersion='3.0.0-alpha'
+def plugVersion='3.0.1'
 
 def userName=properties.getProperty('userName')
 def userKey=properties.getProperty('userKey')

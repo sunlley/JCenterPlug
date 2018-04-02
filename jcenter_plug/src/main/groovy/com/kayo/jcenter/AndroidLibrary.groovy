@@ -5,11 +5,14 @@ import org.gradle.api.DomainObjectSet
 import org.gradle.api.Project
 import org.gradle.api.UnknownDomainObjectException
 import org.gradle.api.artifacts.Dependency
+import org.gradle.api.artifacts.DependencyConstraint
 import org.gradle.api.artifacts.ModuleDependency
 import org.gradle.api.artifacts.PublishArtifact
 import org.gradle.api.attributes.AttributeContainer
 import org.gradle.api.attributes.Usage
 import org.gradle.api.internal.DefaultDomainObjectSet
+import org.gradle.api.internal.artifacts.DefaultDependencySet
+import org.gradle.api.internal.artifacts.dependencies.DefaultDependencyConstraint
 import org.gradle.api.internal.component.SoftwareComponentInternal
 import org.gradle.api.internal.component.UsageContext
 import org.gradle.api.model.ObjectFactory
@@ -79,6 +82,17 @@ class AndroidLibrary implements SoftwareComponentInternal {
 
         Set<ModuleDependency> getDependencies() {
             dependencies.withType(ModuleDependency)
+        }
+
+        @Override
+        Set<? extends DependencyConstraint> getDependencyConstraints() {
+            DomainObjectSet<Dependency> set = new DefaultDependencySet()
+            if (dependencies != null){
+                dependencies.each { d ->
+                    set.add(new DefaultDependencyConstraint(d.group,d.name,d.version))
+                }
+            }
+            return  set
         }
 
         @Override

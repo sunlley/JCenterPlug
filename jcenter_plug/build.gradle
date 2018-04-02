@@ -11,7 +11,7 @@ dependencies {
     //groovy sdk
     compile localGroovy()
 
-    compile 'com.android.tools.build:gradle:3.2.0-alpha01'
+    compile 'com.android.tools.build:gradle:3.2.0-alpha08'
 
     compile 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
     compile 'com.android.tools.build:transform-api:2.0.0-deprecated-use-gradle-api'
