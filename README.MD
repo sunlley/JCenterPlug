@@ -11,7 +11,7 @@
         jcenter()
     }
     dependencies {
-        classpath 'com.kayo.jcenter:jcenter-plug:3.0.0-alpha'
+        classpath 'com.kayo.jcenter:jcenter-plug:3.0.1'
     }
   }
 ```
@@ -46,6 +46,7 @@ apply plugin: 'jcenter-plug'
 | jcener-plug version | Java Projects | Android Projects |
 |---------------------|---------------|------------------|
 | 3.0.0-alpha         | Gradle 4.0+   | Gradle 4.1+      |
+| 3.0.1               | Gradle 4.5+   | Gradle 4.5+      |
 
 
 ##  感谢
