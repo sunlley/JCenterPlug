@@ -51,4 +51,5 @@ apply plugin: 'jcenter-plug'
 
 ##  感谢
   bintray-release 项目
+  <br/>
   最后欢迎提出您的宝贵意见、建议，祝大家工作愉快！
